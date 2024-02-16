@@ -9,6 +9,7 @@ COLOR_WHITE = (255,255,255)
 COLOR_BLACK = (0,0,0)
 PLAYER_WIDTH = 20
 PLAYER_HEIGHT = 20
+LIMIT = 0
 
 # -- GAME SETTINGS
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -23,11 +24,11 @@ pygame.init()
 
 playing = True
 
-touches = 0
+
 while playing:  
 
     FPS.tick(120)
-    if touches != 5: 
+    if LIMIT != 5: 
         for event in pygame.event.get(): 
             if event.type == QUIT: 
                 palying = False
