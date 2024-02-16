@@ -9,19 +9,32 @@ WIDTH = 400
 main_display = pygame.display.set_mode((HEIGHT,WIDTH))
 
 COLOR_WHITE = (255,255,255)
-PLAYER_SIZE = (20,20)
+COLOR_BLACK = (0,0,0)
 
-player = pygame.Surface(PLAYER_SIZE)
+player_size = (20,20)
+player = pygame.Surface(player_size)
 player.fill(COLOR_WHITE)
 player_rect = player.get_rect()
+player_speed = [1 ,1]
 
 playing = True
 
-while playing: 
+while playing:  
+    FPS.tick(120)
+
     for event in pygame.event.get(): 
         if event.type == QUIT: 
             palying = False
 
+    
+    main_display.fill(COLOR_BLACK)
+
+
+    #print(player_rect.bottom)
+
     main_display.blit(player, player_rect)
 
+    player_rect = player_rect.move(player_speed)
+
     pygame.display.flip()
+
