@@ -6,6 +6,8 @@ pygame.init()
 HEIGHT = 400
 WIDTH = 400
 
+FPS = pygame.time.Clock()
+
 main_display = pygame.display.set_mode((HEIGHT,WIDTH))
 
 COLOR_WHITE = (255,255,255)
@@ -15,7 +17,9 @@ player_size = (20,20)
 player = pygame.Surface(player_size)
 player.fill(COLOR_WHITE)
 player_rect = player.get_rect()
-player_speed = [1 ,1]
+player_speed = [-1, -1]
+
+
 
 playing = True
 
