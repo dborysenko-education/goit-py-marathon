@@ -32,32 +32,17 @@ while playing:
 
     main_display.fill(COLOR_BLACK)
 
-    def check_borders(x_0, y_0, x_max, y_max):
-        if player_rect.bottom >= y_max:
-            player_speed[1] = -player_speed[1]
+    if player_rect.bottom >= HEIGHT:
+        player_speed[1] = -player_speed[1]
 
-        if player_rect.right >= x_max:
-            player_speed[0] = -player_speed[0]
+    if player_rect.right >= WIDTH:
+        player_speed[0] = -player_speed[0]
 
-        if player_rect.top < x_0:
-            player_speed[1] = -player_speed[1]
+    if player_rect.top < 0:
+        player_speed[1] = -player_speed[1]
 
-        if player_rect.left < y_0:
-            player_speed[0] = -player_speed[0]
-
-    check_borders(0, 0, WIDTH, HEIGHT)
-
-    #if player_rect.bottom >= HEIGHT:
-        #player_speed[1] = -player_speed[1]
-
-    #if player_rect.right >= WIDTH:
-        #player_speed[0] = -player_speed[0]
-
-    #if player_rect.top < 0:
-        #player_speed[1] = -player_speed[1]
-
-    #if player_rect.left < 0:
-        #player_speed[0] = -player_speed[0]
+    if player_rect.left < 0:
+        player_speed[0] = -player_speed[0]
 
     #print(player_rect.bottom)
 
