@@ -17,7 +17,7 @@ player_size = (20,20)
 player = pygame.Surface(player_size)
 player.fill(COLOR_WHITE)
 player_rect = player.get_rect()
-player_speed = [-1, -1]
+player_speed = [1, 1]
 
 
 
@@ -33,8 +33,13 @@ while playing:
     
     main_display.fill(COLOR_BLACK)
 
+    if player_rect.bottom >= HEIGHT:
+        player_speed = [1, -1]
 
-    #print(player_rect.bottom)
+    if player_rect.right >= WIDTH:
+        player_speed = [-1, -1]
+
+    print(player_rect.bottom)
 
     main_display.blit(player, player_rect)
 
