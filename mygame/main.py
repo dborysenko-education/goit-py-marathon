@@ -89,7 +89,6 @@ while playing:
  
     main_display.blit(player, player_rect)
 
-
     pygame.display.flip()
 
     for enemy in enemies: 
@@ -102,8 +101,7 @@ while playing:
 
     print(f"ENEMIES:\t{len(enemies)}\nBONUSES:\t{len(bonuses)}")
     
-
-
+# -- EXIT WHEN PRESSED 0
     if keys[K_0]: 
         pygame.display.quit()
         pygame.quit()
