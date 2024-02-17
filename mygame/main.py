@@ -6,7 +6,7 @@ WIDTH = 800
 HEIGHT = 600
 FPS = pygame.time.Clock()
 COLOR_PLAYER = (255, 255, 255) # WHITE
-COLOR_FIELD = (0, 0, 0) # BLACK
+COLOR_GAMEFIELD = (0, 0, 0) # BLACK
 COLOR_ENEMY = (255, 0, 0) # RED
 COLOR_BONUS = (250, 215, 0) # GOLDEN
 PLAYER_WIDTH = 20
@@ -39,8 +39,6 @@ def create_bonus():
     bonus_move = [0, random.randint(1, 6)]
     return [bonus, bonus_rect, bonus_move]
 
-
-
 # -- GAME PROCESS
 pygame.init()
 
@@ -51,7 +49,7 @@ bonuses = []
 
 while playing:  
 
-    FPS.tick(60)
+    FPS.tick(120)
 
     for event in pygame.event.get(): 
         if event.type == QUIT: 
@@ -61,7 +59,7 @@ while playing:
         if event.type == CREATE_BONUS: 
             bonuses.append(create_bonus())
 
-    main_display.fill(COLOR_FIELD)
+    main_display.fill(COLOR_GAMEFIELD)
 
     keys = pygame.key.get_pressed()
 
@@ -99,10 +97,11 @@ while playing:
             enemies.pop(enemies.index(enemy))
 
     for bonus in bonuses: 
-        if bonuses[1].bottom > HEIGHT:
+        if bonus[1].bottom > HEIGHT:
             bonuses.pop(bonuses.index(bonus))
 
-    print(f"ENEMIES : {len(enemies)}\nBONUSES: {len(bonuses)}")
+    print(f"ENEMIES:\t{len(enemies)}\nBONUSES:\t{len(bonuses)}")
+    
 
 
     if keys[K_0]: 
