@@ -27,6 +27,12 @@ player_rect = player.get_rect()
 pygame.time.set_timer(CREATE_ENEMY, 1500)
 pygame.time.set_timer(CREATE_BONUS, 1000)
 
+# def rand_color(): 
+#     r = random.randint(0,255)
+#     g = random.randint(0,255)
+#     b = random.randint(0,255)
+#     return [r, g, b]
+
 def create_enemy():
     enemy_size = (ENEMY_WIDTH, ENEMY_HEIGHT)
     enemy = pygame.Surface(enemy_size)
@@ -38,6 +44,7 @@ def create_enemy():
 def create_bonus():
     bonus_size = (BONUS_WIDTH, BONUS_HEIGHT)
     bonus = pygame.Surface(bonus_size)
+    # bonus.fill(rand_color())
     bonus.fill(COLOR_BONUS)
     bonus_rect = pygame.Rect(random.randint(0, WIDTH-BONUS_WIDTH), 0, *bonus_size)
     bonus_move = [0, random.randint(1, 6)]
