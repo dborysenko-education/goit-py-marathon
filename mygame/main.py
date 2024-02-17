@@ -27,6 +27,7 @@ player_rect = player.get_rect()
 pygame.time.set_timer(CREATE_ENEMY, 1500)
 pygame.time.set_timer(CREATE_BONUS, 1000)
 
+# -- GAME FUNCTIONS
 # def rand_color(): 
 #     r = random.randint(0,255)
 #     g = random.randint(0,255)
