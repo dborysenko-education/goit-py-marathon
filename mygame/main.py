@@ -11,6 +11,10 @@ COLOR_ENEMY = (255, 0, 0) # RED
 COLOR_BONUS = (250, 215, 0) # GOLDEN
 PLAYER_WIDTH = 20
 PLAYER_HEIGHT = 20
+ENEMY_WIDTH = 30
+ENEMY_HEIGHT = 30
+BONUS_WIDTH = 15
+BONUS_HEIGHT = 15
 CREATE_ENEMY = pygame.USEREVENT + 1
 CREATE_BONUS = pygame.USEREVENT + 2
 
@@ -24,18 +28,18 @@ pygame.time.set_timer(CREATE_ENEMY, 1500)
 pygame.time.set_timer(CREATE_BONUS, 1000)
 
 def create_enemy():
-    enemy_size = (30, 30)
+    enemy_size = (ENEMY_WIDTH, ENEMY_HEIGHT)
     enemy = pygame.Surface(enemy_size)
     enemy.fill(COLOR_ENEMY)
-    enemy_rect = pygame.Rect(WIDTH, random.randint(0, HEIGHT), *enemy_size)
+    enemy_rect = pygame.Rect(WIDTH, random.randint(0, HEIGHT-ENEMY_HEIGHT), *enemy_size)
     enemy_move = [random.randint(-6, -1), 0]
     return [enemy, enemy_rect, enemy_move]
 
 def create_bonus():
-    bonus_size = (10, 10)
+    bonus_size = (BONUS_WIDTH, BONUS_HEIGHT)
     bonus = pygame.Surface(bonus_size)
     bonus.fill(COLOR_BONUS)
-    bonus_rect = pygame.Rect(random.randint(0, WIDTH), 0, *bonus_size)
+    bonus_rect = pygame.Rect(random.randint(0, WIDTH-BONUS_WIDTH), 0, *bonus_size)
     bonus_move = [0, random.randint(1, 6)]
     return [bonus, bonus_rect, bonus_move]
 
