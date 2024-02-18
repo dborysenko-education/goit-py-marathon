@@ -18,6 +18,10 @@ BONUS_WIDTH = 15
 BONUS_HEIGHT = 15
 CREATE_ENEMY = pygame.USEREVENT + 1
 CREATE_BONUS = pygame.USEREVENT + 2
+RATE_ENEMY = 1500
+RATE_BONUS = 1000
+GAME_SPEED = 60
+
 
 
 # -- GAME SETTINGS
@@ -26,8 +30,8 @@ player_size = ((PLAYER_WIDTH, PLAYER_HEIGHT))
 player = pygame.Surface(player_size)
 player.fill(COLOR_PLAYER)
 player_rect = player.get_rect()
-pygame.time.set_timer(CREATE_ENEMY, 1500)
-pygame.time.set_timer(CREATE_BONUS, 1000)
+pygame.time.set_timer(CREATE_ENEMY, RATE_ENEMY)
+pygame.time.set_timer(CREATE_BONUS, RATE_BONUS)
 
 bg = pygame.transform.scale(pygame.image.load('C:\python\goit\goit-py-marathon\mygame\\assets\\background.png'), (WIDTH, HEIGHT))
 bg_X1 = 0
@@ -46,7 +50,7 @@ def create_enemy():
     enemy = pygame.Surface(enemy_size)
     enemy.fill(COLOR_ENEMY)
     enemy_rect = pygame.Rect(WIDTH, random.randint(0, HEIGHT-ENEMY_HEIGHT), *enemy_size)
-    enemy_move = [random.randint(-6, -1), 0]
+    enemy_move = [random.randint(-8, -4), 0]
     return [enemy, enemy_rect, enemy_move]
 
 def create_bonus():
@@ -55,7 +59,7 @@ def create_bonus():
     # bonus.fill(rand_color())
     bonus.fill(COLOR_BONUS)
     bonus_rect = pygame.Rect(random.randint(0, WIDTH-BONUS_WIDTH), 0, *bonus_size)
-    bonus_move = [0, random.randint(1, 6)]
+    bonus_move = [0, random.randint(4, 8)]
     return [bonus, bonus_rect, bonus_move]
 
 # -- GAME PROCESS
@@ -72,7 +76,7 @@ score = 0
 
 while playing:  
 
-    FPS.tick(120)
+    FPS.tick(GAME_SPEED)
 
     for event in pygame.event.get(): 
         if event.type == QUIT: 
@@ -99,19 +103,19 @@ while playing:
 
     if keys[K_DOWN] and player_rect.bottom < HEIGHT : 
         #print("DOWN")
-        player_rect = player_rect.move([0, 1])
+        player_rect = player_rect.move([0, 4])
 
     if keys[K_UP] and player_rect.top > 0 : 
         #print("UP")
-        player_rect = player_rect.move([0, -1])
+        player_rect = player_rect.move([0, -4])
 
     if keys[K_LEFT] and player_rect.left > 0 : 
         #print("LEFT")
-        player_rect = player_rect.move([-1, 0])
+        player_rect = player_rect.move([-4, 0])
 
     if keys[K_RIGHT] and player_rect.right < WIDTH : 
         #print("RIGHT")
-        player_rect = player_rect.move([1, 0])
+        player_rect = player_rect.move([4, 0])
         
     for enemy in enemies: 
         enemy[1] = enemy[1].move(enemy[2]) #enemy_rect
