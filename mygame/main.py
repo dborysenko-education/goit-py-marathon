@@ -27,8 +27,11 @@ GAME_SPEED = 60
 # -- GAME SETTINGS
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
 player_size = ((PLAYER_WIDTH, PLAYER_HEIGHT))
-player = pygame.Surface(player_size)
-player.fill(COLOR_PLAYER)
+
+# player = pygame.Surface(player_size)
+player = pygame.image.load('C:\python\goit\goit-py-marathon\mygame\\assets\\player.png').convert_alpha()
+#player.fill(COLOR_PLAYER)
+
 player_rect = player.get_rect()
 pygame.time.set_timer(CREATE_ENEMY, RATE_ENEMY)
 pygame.time.set_timer(CREATE_BONUS, RATE_BONUS)
