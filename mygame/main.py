@@ -18,8 +18,7 @@ BONUS_WIDTH = 15
 BONUS_HEIGHT = 15
 CREATE_ENEMY = pygame.USEREVENT + 1
 CREATE_BONUS = pygame.USEREVENT + 2
-#FONT = pygame.font.SysFont('C:\Windows\Fonts\Arial.ttf', 20)
-#FONT = pygame.font.SysFont('Arial', 20)
+
 
 # -- GAME SETTINGS
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -29,6 +28,8 @@ player.fill(COLOR_PLAYER)
 player_rect = player.get_rect()
 pygame.time.set_timer(CREATE_ENEMY, 1500)
 pygame.time.set_timer(CREATE_BONUS, 1000)
+
+bg = pygame.transform.scale(pygame.image.load('C:\python\goit\goit-py-marathon\mygame\\assets\\background.png'), (WIDTH, HEIGHT))
 
 # -- GAME FUNCTIONS
 # def rand_color(): 
@@ -78,8 +79,8 @@ while playing:
         if event.type == CREATE_BONUS: 
             bonuses.append(create_bonus())
 
-    main_display.fill(COLOR_GAMEFIELD)
-
+    #main_display.fill(COLOR_GAMEFIELD)
+    main_display.blit(bg, (0, 0))
     keys = pygame.key.get_pressed()
 
     if keys[K_DOWN] and player_rect.bottom < HEIGHT : 
