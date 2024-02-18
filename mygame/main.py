@@ -126,6 +126,7 @@ while playing:
         if player_rect.colliderect(bonus[1]):
             print("bonus")
             bonuses.pop(bonuses.index(bonus))
+            score += 1
 
 
     main_display.blit(FONT.render(str(score), True, COLOR_SCORE), (WIDTH-50, 20))
@@ -140,6 +141,7 @@ while playing:
     for bonus in bonuses: 
         if bonus[1].bottom > HEIGHT:
             bonuses.pop(bonuses.index(bonus))
+
         
 
     #print(f"ENEMIES:\t{len(enemies)}\nBONUSES:\t{len(bonuses)}")
