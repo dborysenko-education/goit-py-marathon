@@ -30,6 +30,9 @@ pygame.time.set_timer(CREATE_ENEMY, 1500)
 pygame.time.set_timer(CREATE_BONUS, 1000)
 
 bg = pygame.transform.scale(pygame.image.load('C:\python\goit\goit-py-marathon\mygame\\assets\\background.png'), (WIDTH, HEIGHT))
+bg_X1 = 0
+bg_X2 = bg.get_width()
+bg_move = 3
 
 # -- GAME FUNCTIONS
 # def rand_color(): 
@@ -80,7 +83,18 @@ while playing:
             bonuses.append(create_bonus())
 
     #main_display.fill(COLOR_GAMEFIELD)
-    main_display.blit(bg, (0, 0))
+            
+    bg_X1 -= bg_move
+    bg_X2 -= bg_move
+
+    if bg_X1 < -bg.get_width(): 
+        bg_X1 = bg.get_width()
+    if bg_X2 < -bg.get_width(): 
+        bg_X2 = bg.get_width()
+
+    main_display.blit(bg, (bg_X1, 0))
+    main_display.blit(bg, (bg_X2, 0))
+    #main_display.blit(bg, (0, 0))
     keys = pygame.key.get_pressed()
 
     if keys[K_DOWN] and player_rect.bottom < HEIGHT : 
