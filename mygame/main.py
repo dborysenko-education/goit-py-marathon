@@ -5,7 +5,7 @@ from pygame.locals import *
 WIDTH = 800
 HEIGHT = 600
 FPS = pygame.time.Clock()
-COLOR_PLAYER = (255, 255, 255) # WHITE
+COLOR_PLAYER = (0, 0, 0) # BLACK
 COLOR_GAMEFIELD = (0, 0, 0) # BLACK
 COLOR_ENEMY = (255, 0, 0) # RED
 COLOR_BONUS = (250, 215, 0) # GOLDEN
