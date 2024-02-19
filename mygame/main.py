@@ -45,6 +45,13 @@ bg_X1 = 0
 bg_X2 = bg.get_width()
 bg_move = 3
 
+files_heights = []
+def stable_animation(path): #ANIMATED_PLAYER_IMAGES
+    for file in path: 
+        files_heights.append(file.get_rect().get_height())
+print(files_heights)
+#print(ANIMATED_PLAYER_IMAGES) 
+
 def create_enemy():
     enemy_size = (ENEMY_WIDTH, ENEMY_HEIGHT)
     enemy = ENEMY_IMG
