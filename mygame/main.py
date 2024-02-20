@@ -1,8 +1,8 @@
 import pygame, sys, random, os
 from pygame.constants import QUIT, K_DOWN, K_UP, K_LEFT, K_RIGHT, K_0
 from pygame.locals import *
-# -- GAME CONSTANTS
 
+# -- GAME CONSTANTS
 WIDTH = 800
 HEIGHT = 600
 FPS = pygame.time.Clock()
@@ -49,7 +49,7 @@ files_heights = []
 def stable_animation(path): #ANIMATED_PLAYER_IMAGES
     for file in path: 
         files_heights.append(file.get_rect().get_height())
-print(files_heights)
+#print(files_heights)
 #print(ANIMATED_PLAYER_IMAGES) 
 
 def create_enemy():
